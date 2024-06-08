@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    val room_version = "2.4.1"
+    val compose_version = "1.1.0" // Use the latest version available
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -66,4 +68,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1") // Use the latest version available
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07") // Use the latest version available
+    implementation("androidx.compose.ui:ui:$compose_version")
+    implementation("androidx.compose.material:material:$compose_version")
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+    implementation("androidx.compose.runtime:runtime:$compose_version")
 }
