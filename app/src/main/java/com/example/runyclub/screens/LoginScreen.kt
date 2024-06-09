@@ -26,6 +26,11 @@ fun LoginScreen(navController: NavHostController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "RunyClub Login",
+            style = MaterialTheme.typography.headlineLarge
+        )
+        Spacer(modifier = Modifier.height(16.dp))
         TextField(
             value = username,
             onValueChange = { username = it },
@@ -45,9 +50,11 @@ fun LoginScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(24.dp))
         Button(
             onClick = {
-                // Implement actual login logic here
-                // For now, we assume login is always successful
-                onLoginSuccess()
+                navController.navigate("home") {
+                    popUpTo("login") {
+                        inclusive = true
+                    }
+                }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -56,9 +63,7 @@ fun LoginScreen(navController: NavHostController) {
     }
 }
 
-fun onLoginSuccess() {
-    TODO("Not yet implemented")
-}
+
 
 private fun NavHostController.onLoginSuccess() {
     this.navigate("home") {
