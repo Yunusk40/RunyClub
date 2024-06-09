@@ -75,4 +75,5 @@ dependencies {
     implementation("androidx.compose.material:material:$compose_version")
     implementation("androidx.compose.ui:ui-tooling:$compose_version")
     implementation("androidx.compose.runtime:runtime:$compose_version")
+    implementation("androidx.navigation:navigation-compose:2.5.1")
 }
