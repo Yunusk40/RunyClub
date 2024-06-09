@@ -5,14 +5,21 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.compose.rememberNavController
+import com.example.runyclub.roomdatabase.AppDatabase
+import com.example.runyclub.roomdatabase.UserRepository
+import com.example.runyclub.screens.LoginScreen
+import com.example.runyclub.viewmodels.LoginViewModel
+import com.example.runyclub.viewmodels.LoginViewModelFactory
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +28,10 @@ class LoginActivity : ComponentActivity() {
             var username by remember { mutableStateOf("") }
             var password by remember { mutableStateOf("") }
             val context = LocalContext.current
-            val viewModel: LoginViewModel = viewModel()
+            val database = AppDatabase.getDatabase(context)
+            val userRepository = UserRepository(database.userDao())
+            val viewModel = ViewModelProvider(this, LoginViewModelFactory(userRepository)).get(LoginViewModel::class.java)
+            LoginScreen(navController = rememberNavController(), viewModel = viewModel)
 
             Column(modifier = Modifier.padding(16.dp)) {
                 TextField(

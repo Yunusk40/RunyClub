@@ -1,9 +1,12 @@
+package com.example.runyclub.roomdatabase
+
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = [User::class], version = 1)
+//Setup for the Room database that includes the com.example.runyclub.roomdatabase.User entity and provides an instance of com.example.runyclub.roomdatabase.UserDao.
+@Database(entities = [UserEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 

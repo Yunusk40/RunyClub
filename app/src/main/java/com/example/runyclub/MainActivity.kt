@@ -4,23 +4,30 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.lifecycleScope
 import com.example.runyclub.navigation.Navigation
+import com.example.runyclub.roomdatabase.AppDatabase
+import com.example.runyclub.roomdatabase.UserRepository
 import com.example.runyclub.ui.theme.RunyClubTheme
+import com.example.runyclub.viewmodels.LoginViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+    private lateinit var userRepository: UserRepository
+    private lateinit var loginViewModel: LoginViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val database = AppDatabase.getDatabase(this@MainActivity)
+            userRepository = UserRepository(database.userDao())
+            loginViewModel = LoginViewModel(userRepository)
+        }
         enableEdgeToEdge()
         setContent {
             RunyClubTheme {
-                Navigation()
+                Navigation(loginViewModel)
             }
         }
     }

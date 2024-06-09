@@ -1,9 +1,14 @@
 package com.example.runyclub.roomdatabase
 
-import User
-import UserDao
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class UserRepository(private val userDao: UserDao) {
-    suspend fun insertUser(user: User) = userDao.insertUser(user)
-    suspend fun findUserByUsername(username: String) = userDao.findUserByUsername(username)
+    suspend fun insertUser(user: UserEntity) = withContext(Dispatchers.IO) {
+        userDao.insertUser(user)
+    }
+
+    suspend fun findUserByUsername(username: String) = withContext(Dispatchers.IO) {
+        userDao.findUserByUsername(username)
+    }
 }

@@ -1,10 +1,14 @@
+package com.example.runyclub.viewmodels
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.runyclub.roomdatabase.UserEntity
 import com.example.runyclub.roomdatabase.UserRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val repository: UserRepository) : ViewModel() {
-    fun addUser(user: User) = viewModelScope.launch {
+    fun registerUser(username: String, password: String) = viewModelScope.launch {
+        val user = UserEntity(username = username, password = password)
         repository.insertUser(user)
     }
 

@@ -1,12 +1,15 @@
+package com.example.runyclub.roomdatabase
+
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
+//Interface for data access operations, like querying and inserting user data
 @Dao
 interface UserDao {
     @Insert
-    suspend fun insertUser(user: User)
+    fun insertUser(user: UserEntity): Long
 
     @Query("SELECT * FROM users WHERE username = :username")
-    suspend fun findUserByUsername(username: String): User?
+    fun findUserByUsername(username: String): UserEntity?
 }
