@@ -5,8 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 
-//Setup for the Room database that includes the com.example.runyclub.roomdatabase.User entity and provides an instance of com.example.runyclub.roomdatabase.UserDao.
-@Database(entities = [UserEntity::class], version = 1)
+@Database(entities = [UserEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
@@ -20,7 +19,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // Allow for destructive migrations
+                    .build()
                 INSTANCE = instance
                 instance
             }

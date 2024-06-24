@@ -2,6 +2,7 @@ package com.example.runyclub.screens
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
@@ -21,37 +22,25 @@ import com.google.android.gms.maps.MapView
 @Composable
 fun RunScreen(navController: NavHostController, requestPermissionLauncher: ActivityResultLauncher<String>) {
     val context = LocalContext.current
-    val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
-    var currentLocation by remember { mutableStateOf(LatLng(0.0, 0.0)) }
+    val mapView = remember { MapView(context) }
+    var mapViewInitialized by remember { mutableStateOf(false) }
 
-    if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED) {
-        requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-    } else {
-        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-            if (location != null) {
-                currentLocation = LatLng(location.latitude, location.longitude)
+    DisposableEffect(mapView) {
+        mapView.onCreate(Bundle())
+        mapView.onResume()
+        mapView.getMapAsync { googleMap ->
+            googleMap.uiSettings.isZoomControlsEnabled = true
+            googleMap.uiSettings.isCompassEnabled = true
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+                googleMap.isMyLocationEnabled = true
             }
+        }
+        onDispose {
+            mapView.onPause()
+            mapView.onDestroy()
         }
     }
 
-    val cameraPosition = CameraPosition.fromLatLngZoom(currentLocation, 15f)
-
-    AndroidView({ context ->
-        GoogleMapOptions().apply {
-            mapType(1)
-            zoomControlsEnabled(true)
-            compassEnabled(true)
-        }.let { options ->
-            MapView(context, options).apply {
-                getMapAsync { googleMap ->
-                    googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
-                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED) {
-                        googleMap.isMyLocationEnabled = true
-                    }
-                }
-            }
-        }
-    }, modifier = Modifier.fillMaxSize())
+    AndroidView({ mapView }, Modifier.fillMaxSize())
 }
