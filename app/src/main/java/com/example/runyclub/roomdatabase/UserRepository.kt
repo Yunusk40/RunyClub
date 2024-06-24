@@ -11,4 +11,8 @@ class UserRepository(private val userDao: UserDao) {
     suspend fun findUserByUsername(username: String) = withContext(Dispatchers.IO) {
         userDao.findUserByUsername(username)
     }
+
+    suspend fun updateUser(user: UserEntity) = withContext(Dispatchers.IO) {
+        userDao.updateUser(user)
+    }
 }

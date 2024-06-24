@@ -4,11 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.runyclub.roomdatabase.UserRepository
 
-class LoginViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
+class AccountViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            return LoginViewModel(userRepository) as T
+        if (modelClass.isAssignableFrom(AccountViewModel::class.java)) {
+            return AccountViewModel(userRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

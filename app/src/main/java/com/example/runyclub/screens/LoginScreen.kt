@@ -9,17 +9,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.runyclub.viewmodels.LoginViewModel
 
-//login UI
 @Composable
 fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var weight by remember { mutableStateOf("") }
+    var height by remember { mutableStateOf("") }
     var showFields by remember { mutableStateOf(false) }
     var currentAction by remember { mutableStateOf("") }
     val context = LocalContext.current
@@ -50,17 +52,37 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
                 singleLine = true,
                 keyboardOptions = KeyboardOptions.Default.copy(autoCorrect = false)
             )
+            if (currentAction == "register") {
+                Spacer(modifier = Modifier.height(16.dp))
+                TextField(
+                    value = weight,
+                    onValueChange = { weight = it },
+                    label = { Text("Weight (kg)") },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                TextField(
+                    value = height,
+                    onValueChange = { height = it },
+                    label = { Text("Height (cm)") },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
+                )
+            }
             Spacer(modifier = Modifier.height(24.dp))
             Button(
                 onClick = {
                     when (currentAction) {
                         "register" -> {
-                            if (username.isNotBlank() && password.isNotBlank()) {
-                                viewModel.registerUser(username, password)
+                            if (username.isNotBlank() && password.isNotBlank() && weight.isNotBlank() && height.isNotBlank()) {
+                                val weightValue = weight.toFloatOrNull() ?: 0f
+                                val heightValue = height.toFloatOrNull() ?: 0f
+                                viewModel.registerUser(username, password, weightValue, heightValue)
                                 Toast.makeText(context, "Registered successfully", Toast.LENGTH_SHORT).show()
                                 navController.navigate("home")
                             } else {
-                                Toast.makeText(context, "Please fill in both fields", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                             }
                         }
                         "login" -> {
@@ -105,16 +127,3 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel) {
         }
     }
 }
-
-
-
-private fun NavHostController.onLoginSuccess() {
-    this.navigate("home") {
-        popUpTo("login") {
-            inclusive = true // This clears the login from the back stack
-        }
-    }
-}
-
-
-
