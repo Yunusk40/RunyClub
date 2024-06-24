@@ -1,4 +1,5 @@
 package com.example.runyclub.navigation
+import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -10,7 +11,7 @@ import com.example.runyclub.screens.RunScreen
 import com.example.runyclub.viewmodels.LoginViewModel
 
 @Composable
-fun Navigation(viewModel: LoginViewModel) {
+fun Navigation(viewModel: LoginViewModel, requestPermissionLauncher: ActivityResultLauncher<String>) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "login") {
         composable("login") {
@@ -20,10 +21,11 @@ fun Navigation(viewModel: LoginViewModel) {
             HomeScreen(navController = navController)
         }
         composable("runscreen") {
-            RunScreen(navController = navController)
+            RunScreen(navController = navController, requestPermissionLauncher)
         }
         composable("account") {
             Account(navController = navController)
         }
+
     }
 }

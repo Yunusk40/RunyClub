@@ -2,8 +2,10 @@ package com.example.runyclub
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
 import com.example.runyclub.navigation.Navigation
 import com.example.runyclub.roomdatabase.AppDatabase
@@ -26,8 +28,13 @@ class MainActivity : ComponentActivity() {
         }
         enableEdgeToEdge()
         setContent {
+            val requestPermissionLauncher = rememberLauncherForActivityResult(
+                contract = ActivityResultContracts.RequestPermission()
+            ) { isGranted: Boolean ->
+                // handle permission result
+            }
             RunyClubTheme {
-                Navigation(loginViewModel)
+                Navigation(loginViewModel, requestPermissionLauncher)
             }
         }
     }
