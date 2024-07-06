@@ -7,7 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.runyclub.screens.Account
 import com.example.runyclub.screens.HomeScreen
 import com.example.runyclub.screens.LoginScreen
-import com.example.runyclub.screens.RunScreen
+import com.example.runyclub.screens.runui.RunScreen
 import com.example.runyclub.viewmodels.LoginViewModel
 
 @Composable
@@ -21,7 +21,7 @@ fun Navigation(viewModel: LoginViewModel, requestPermissionLauncher: ActivityRes
             HomeScreen(navController = navController)
         }
         composable("runscreen") {
-            RunScreen(navController = navController, requestPermissionLauncher)
+            RunScreen(navController = navController)
         }
         composable("account") {
             Account(navController = navController)

@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.rememberNavController
 import com.example.runyclub.roomdatabase.AppDatabase
-import com.example.runyclub.roomdatabase.UserRepository
+import com.example.runyclub.roomdatabase.repository.UserRepository
 import com.example.runyclub.screens.LoginScreen
 import com.example.runyclub.viewmodels.LoginViewModel
 import com.example.runyclub.viewmodels.LoginViewModelFactory

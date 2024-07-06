@@ -1,4 +1,4 @@
-package com.example.runyclub.roomdatabase
+package com.example.runyclub.roomdatabase.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

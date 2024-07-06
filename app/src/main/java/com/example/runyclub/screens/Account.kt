@@ -14,7 +14,7 @@ import androidx.navigation.NavController
 import com.example.runyclub.viewmodels.AccountViewModel
 import com.example.runyclub.viewmodels.AccountViewModelFactory
 import com.example.runyclub.roomdatabase.AppDatabase
-import com.example.runyclub.roomdatabase.UserRepository
+import com.example.runyclub.roomdatabase.repository.UserRepository
 import com.example.runyclub.widgets.SimpleBottomAppBar
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.movieappmad24.widgets
+package com.example.runyclub.widgets
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle

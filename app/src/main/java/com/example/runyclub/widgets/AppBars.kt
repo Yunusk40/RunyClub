@@ -9,7 +9,6 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.movieappmad24.widgets.BottomBarScreen
 
 @Composable
 fun SimpleBottomAppBar(navController: NavController) {

@@ -2,8 +2,8 @@ package com.example.runyclub.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.runyclub.roomdatabase.UserEntity
-import com.example.runyclub.roomdatabase.UserRepository
+import com.example.runyclub.roomdatabase.entity.UserEntity
+import com.example.runyclub.roomdatabase.repository.UserRepository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

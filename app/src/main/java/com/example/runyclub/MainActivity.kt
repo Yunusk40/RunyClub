@@ -9,7 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
 import com.example.runyclub.navigation.Navigation
 import com.example.runyclub.roomdatabase.AppDatabase
-import com.example.runyclub.roomdatabase.UserRepository
+import com.example.runyclub.roomdatabase.repository.UserRepository
 import com.example.runyclub.ui.theme.RunyClubTheme
 import com.example.runyclub.viewmodels.LoginViewModel
 import kotlinx.coroutines.Dispatchers
