@@ -102,14 +102,6 @@ fun RunItem(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        Image(
-            bitmap = run.img.asImageBitmap(),
-            contentDescription = null,
-            modifier = Modifier
-                .size(70.dp),
-            contentScale = ContentScale.Fit
-        )
-        Spacer(modifier = Modifier.size(16.dp))
         RunInfo(
             modifier = Modifier
                 .weight(1f),
