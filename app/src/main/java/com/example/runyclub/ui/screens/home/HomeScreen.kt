@@ -143,7 +143,7 @@ fun HomeScreenContent(
                     .weight(1f)
             )
             Text(
-                text = "All",
+                text = "All Activities",
                 style = MaterialTheme.typography.bodyMedium.copy(
                     color = MaterialTheme.colorScheme.primary
                 ),
@@ -229,15 +229,6 @@ private fun TopBar(
         modifier = modifier
             .height(IntrinsicSize.Min)
     ) {
-        Box(
-            modifier = modifier
-                .fillMaxSize()
-                .offset(y = (-24).dp)
-                .background(
-                    color = MaterialTheme.colorScheme.primary,
-                    shape = RoundedCornerShape(bottomEnd = 16.dp, bottomStart = 16.dp)
-                )
-        )
         Column(modifier = modifier.padding(horizontal = 24.dp)) {
             Spacer(modifier = Modifier.size(24.dp))
             TopBarProfile(
@@ -259,120 +250,21 @@ private fun TopBarProfile(
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        UserProfilePic(
-            imgUri = user.imgUri,
-            gender = user.gender,
-            modifier = Modifier
-                .size(40.dp)
-                .clip(CircleShape)
-        )
         Spacer(modifier = Modifier.size(12.dp))
-
         Text(
             text = buildAnnotatedString {
                 append("Welcome, ")
                 withStyle(
-                    style = SpanStyle(fontWeight = FontWeight.SemiBold),
+                    style = SpanStyle(fontWeight = FontWeight.Light),
                 ) {
                     append(user.name)
                 }
             },
             style = MaterialTheme.typography.bodyMedium.copy(
-                color = MaterialTheme.colorScheme.onPrimary
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             ),
             modifier = Modifier
                 .weight(1f)
         )
-
     }
-}
-
-@Composable
-private fun WeeklyGoalCard(
-    modifier: Modifier = Modifier,
-    weeklyGoalInKm: Int,
-    weeklyGoalDoneInKm: Float,
-    onClick: () -> Unit,
-) {
-    ElevatedCard(
-        modifier = modifier,
-        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 8.dp),
-        onClick = onClick
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp)
-        ) {
-            Text(
-                text = "Weekly Goal",
-                style = MaterialTheme.typography.labelLarge.copy(
-                    color = MaterialTheme.colorScheme.onSurface,
-                    fontWeight = FontWeight.SemiBold
-                ),
-            )
-            Spacer(modifier = Modifier.size(8.dp))
-            Text(
-                text = "$weeklyGoalInKm km",
-                style = MaterialTheme.typography.labelLarge.copy(
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold
-                ),
-                modifier = Modifier
-                    .weight(1f)
-            )
-            Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_forward),
-                contentDescription = "More info",
-                modifier = Modifier
-                    .size(16.dp)
-                    .align(Alignment.CenterVertically),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp)
-                .padding(bottom = 24.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Text(
-                    text = "$weeklyGoalDoneInKm km done",
-                    modifier = Modifier
-                        .weight(1f),
-                    style = MaterialTheme.typography.bodySmall.copy(
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-                )
-                Text(
-                    text = "${
-                        (weeklyGoalInKm - weeklyGoalDoneInKm).coerceIn(
-                            0f,
-                            weeklyGoalInKm.toFloat()
-                        )
-                    } km left",
-                    style = MaterialTheme.typography.bodySmall.copy(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                )
-            }
-            Spacer(
-                modifier = Modifier.size(8.dp)
-            )
-            LinearProgressIndicator(
-                progress = if (weeklyGoalInKm > 0) weeklyGoalDoneInKm / weeklyGoalInKm else 0f,
-                color = MaterialTheme.colorScheme.primary,
-                trackColor = MaterialTheme.colorScheme.surfaceVariant,
-                strokeCap = StrokeCap.Round,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(8.dp)
-            )
-        }
-    }
-
 }

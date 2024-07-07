@@ -27,7 +27,7 @@ fun CommunityScreen() {
 
 @Composable
 fun ChallengeItem(challenge: Challenge) {
-
+    TODO("Not yet implemented")
 }
 
 

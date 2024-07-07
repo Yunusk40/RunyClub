@@ -114,17 +114,6 @@ private fun TopBarProfileContent(
     isEditMode: Boolean,
     profileEditActions: ProfileEditActions
 ) {
-    val context = LocalContext.current
-    val photoPickerLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.PickVisualMedia(),
-        onResult = {
-            it?.let {
-                context.contentResolver
-                    .takePersistableUriPermission(it, Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                profileEditActions.updateImgUri(it)
-            }
-        }
-    )
     val userNameFocusRequester = remember { FocusRequester() }
 
     LaunchedEffect(key1 = isEditMode) {
@@ -140,57 +129,25 @@ private fun TopBarProfileContent(
         Text(
             text = "Profile",
             style = MaterialTheme.typography.titleSmall,
-            color = MaterialTheme.colorScheme.onPrimary,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier
         )
 
         Spacer(modifier = Modifier.size(24.dp))
 
-        Box {
+        UserProfilePic(
+            imgUri = user.imgUri,
+            gender = user.gender,
+            modifier = Modifier
+                .size(84.dp)
+                .clip(CircleShape)
+        )
 
-            UserProfilePic(
-                imgUri = user.imgUri,
-                gender = user.gender,
-                modifier = Modifier
-                    .size(84.dp)
-                    .clip(CircleShape)
-            )
-
-            androidx.compose.animation.AnimatedVisibility(
-                visible = isEditMode,
-                enter = scaleIn() + fadeIn(),
-                exit = scaleOut() + fadeOut(),
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .offset(x = 8.dp, y = 8.dp)
-            ) {
-                IconButton(
-                    onClick = {
-                        photoPickerLauncher.launch(
-                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                        )
-                    },
-                    modifier = Modifier
-                        .background(
-                            color = MaterialTheme.colorScheme.tertiaryContainer,
-                            shape = CircleShape
-                        )
-                ) {
-                    Icon(
-                        imageVector = ImageVector.vectorResource(id = R.drawable.ic_edit),
-                        contentDescription = "Change Photo",
-                        tint = MaterialTheme.colorScheme.onTertiaryContainer,
-                        modifier = Modifier
-                            .size(16.dp)
-                    )
-                }
-            }
-        }
         Spacer(modifier = Modifier.size(12.dp))
 
         val userNameStyle = MaterialTheme.typography.titleMedium.copy(
             fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colorScheme.onPrimary,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
         )
 
@@ -209,29 +166,10 @@ private fun TopBarProfileContent(
                     .wrapContentHeight()
                     .width(200.dp)
                     .padding(bottom = 4.dp)
-                    .bottomBorder(1.dp, MaterialTheme.colorScheme.onPrimary),
+                    .bottomBorder(1.dp, MaterialTheme.colorScheme.onSurfaceVariant),
                 maxLines = 1,
                 singleLine = true,
-                cursorBrush = SolidColor(MaterialTheme.colorScheme.onPrimary)
+                cursorBrush = SolidColor(MaterialTheme.colorScheme.onSurfaceVariant)
             )
-
-        AnimatedVisibility(isEditMode && user.imgUri != null) {
-            Spacer(modifier = Modifier.size(4.dp))
-
-            OutlinedButton(
-                onClick = { profileEditActions.updateImgUri(null) },
-                colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = MaterialTheme.colorScheme.onPrimary
-                ),
-                border = ButtonDefaults.outlinedButtonBorder.copy(
-                    brush = SolidColor(MaterialTheme.colorScheme.onPrimary)
-                )
-            ) {
-                Text(
-                    text = "Remove Picture",
-                    style = MaterialTheme.typography.labelMedium
-                )
-            }
-        }
     }
 }

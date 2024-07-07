@@ -39,15 +39,14 @@ import java.math.RoundingMode
 
 @Composable
 fun CurrentRunStatsCard(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier.fillMaxWidth(),
     durationInMillis: Long = 0L,
     runState: CurrentRunStateWithCalories,
     onPlayPauseButtonClick: () -> Unit = {},
     onFinish: () -> Unit
 ) {
     ElevatedCard(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier,
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp)
     ) {
         Row(
@@ -109,7 +108,7 @@ private fun RunningStats(
         )
         RunningStatsItem(
             modifier = Modifier,
-            unit = "km/hr",
+            unit = "km/h",
             value = runState.currentRunState.speedInKMH.toString()
         )
     }
