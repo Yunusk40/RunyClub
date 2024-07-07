@@ -38,9 +38,9 @@ import com.google.maps.android.compose.Polyline
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
 import com.example.runyclub.R
-import com.example.runyclub.core.tracking.model.PathPoint
-import com.example.runyclub.core.tracking.model.firstLocationPoint
-import com.example.runyclub.core.tracking.model.lasLocationPoint
+import com.example.runyclub.tracking.model.PathPoint
+import com.example.runyclub.tracking.model.firstLocationPoint
+import com.example.runyclub.tracking.model.lasLocationPoint
 import com.example.runyclub.common.utils.GoogleMapUtils
 import com.example.runyclub.theme.md_theme_light_primary
 
@@ -97,9 +97,6 @@ private fun Map(
         )
     }
     val cameraPositionState = rememberCameraPositionState {}
-    val lastLocationPoint by remember(pathPoints) {
-        derivedStateOf { pathPoints.lasLocationPoint() }
-    }
 
     LaunchedEffect(key1 = currentLocation) {
         currentLocation?.let {

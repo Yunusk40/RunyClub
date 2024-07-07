@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.notification
+package com.example.runyclub.tracking.notification
 
 import androidx.core.app.NotificationCompat
 

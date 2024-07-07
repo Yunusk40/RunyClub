@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.model
+package com.example.runyclub.tracking.model
 
 import com.google.android.gms.maps.model.LatLng
 

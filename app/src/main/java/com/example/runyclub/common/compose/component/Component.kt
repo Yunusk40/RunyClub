@@ -68,19 +68,11 @@ fun UserProfilePic(
 @Composable
 fun RunningStatsItem(
     modifier: Modifier = Modifier,
-    painter: Painter,
     unit: String,
     value: String
 ) {
     Row(modifier = modifier.padding(4.dp)) {
-        Image(
-            painter = painter,
-            contentDescription = null,
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .size(20.dp)
-        )
-        Spacer(modifier = Modifier.size(12.dp))
+        Spacer(modifier = Modifier.size(12.dp)) // Adjust spacing as needed
         Column(
             modifier = Modifier
                 .padding(top = 8.dp),

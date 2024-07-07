@@ -1,7 +1,7 @@
 package com.example.runyclub.common.utils
 
 import android.location.Location
-import com.example.runyclub.core.tracking.model.PathPoint
+import com.example.runyclub.tracking.model.PathPoint
 import kotlin.math.roundToInt
 
 object LocationUtils {

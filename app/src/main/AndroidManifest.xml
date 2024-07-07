@@ -44,7 +44,7 @@
             android:value="@integer/google_play_services_version" />
 
         <service
-            android:name="com.example.runyclub.core.tracking.service.TrackingService"
+            android:name="com.example.runyclub.tracking.service.TrackingService"
             android:foregroundServiceType="location" />
     </application>
 

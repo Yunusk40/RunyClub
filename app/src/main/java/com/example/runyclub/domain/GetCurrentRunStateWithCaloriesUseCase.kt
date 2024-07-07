@@ -2,7 +2,7 @@ package com.example.runyclub.domain
 
 import com.example.runyclub.common.utils.RunUtils
 import com.example.runyclub.database.repository.UserRepository
-import com.example.runyclub.core.tracking.TrackingManager
+import com.example.runyclub.tracking.TrackingManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject

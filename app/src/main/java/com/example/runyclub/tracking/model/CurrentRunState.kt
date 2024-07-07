@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.model
+package com.example.runyclub.tracking.model
 
 data class CurrentRunState(
     val distanceInMeters: Int = 0,

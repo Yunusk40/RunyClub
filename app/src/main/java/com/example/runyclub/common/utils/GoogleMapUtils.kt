@@ -10,7 +10,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLngBounds
-import com.example.runyclub.core.tracking.model.PathPoint
+import com.example.runyclub.tracking.model.PathPoint
 
 
 object GoogleMapUtils {

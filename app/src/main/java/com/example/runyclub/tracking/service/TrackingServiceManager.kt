@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.service
+package com.example.runyclub.tracking.service
 
 import androidx.lifecycle.LiveData
 import com.google.android.gms.maps.model.CameraPosition

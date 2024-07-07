@@ -1,7 +1,7 @@
 package com.example.runyclub
 
 import android.app.Application
-import com.example.runyclub.core.tracking.notification.NotificationHelper
+import com.example.runyclub.tracking.notification.NotificationHelper
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject

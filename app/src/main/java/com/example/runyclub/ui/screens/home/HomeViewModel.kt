@@ -7,7 +7,7 @@ import com.example.runyclub.common.extension.setDateToWeekLastDay
 import com.example.runyclub.database.model.Run
 import com.example.runyclub.database.repository.AppRepository
 import com.example.runyclub.database.repository.UserRepository
-import com.example.runyclub.core.tracking.TrackingManager
+import com.example.runyclub.tracking.TrackingManager
 import com.example.runyclub.di.ApplicationScope
 import com.example.runyclub.di.IoDispatcher
 import com.example.runyclub.domain.GetCurrentRunStateWithCaloriesUseCase

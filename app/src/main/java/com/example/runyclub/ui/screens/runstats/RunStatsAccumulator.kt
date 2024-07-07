@@ -1,4 +1,4 @@
-package com.example.runyclub.ui.screens.runstats.utils
+package com.example.runyclub.ui.screens.runstats
 
 import com.example.runyclub.database.model.Run
 import com.example.runyclub.ui.screens.runstats.RunStatsUiState.AccumulatedRunStatisticsOnDate

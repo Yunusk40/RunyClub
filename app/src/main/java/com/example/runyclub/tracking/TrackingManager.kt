@@ -1,14 +1,14 @@
-package com.example.runyclub.core.tracking
+package com.example.runyclub.tracking
 
 import android.location.Location
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.maps.model.LatLng
 import com.example.runyclub.common.utils.LocationUtils
-import com.example.runyclub.core.tracking.location.LocationTrackingManager
-import com.example.runyclub.core.tracking.model.CurrentRunState
-import com.example.runyclub.core.tracking.model.PathPoint
-import com.example.runyclub.core.tracking.service.TrackingServiceManager
+import com.example.runyclub.tracking.location.LocationTrackingManager
+import com.example.runyclub.tracking.model.CurrentRunState
+import com.example.runyclub.tracking.model.PathPoint
+import com.example.runyclub.tracking.service.TrackingServiceManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

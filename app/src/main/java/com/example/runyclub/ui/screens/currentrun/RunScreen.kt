@@ -29,7 +29,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.runyclub.R
-import com.example.runyclub.core.tracking.location.LocationUtils
+import com.example.runyclub.tracking.location.LocationUtils
 import com.example.runyclub.ui.screens.currentrun.component.CurrentRunStatsCard
 import com.example.runyclub.ui.screens.currentrun.component.Map
 import com.example.runyclub.theme.AppTheme
@@ -47,7 +47,7 @@ private fun CurrentRunComposable() {
 @Composable
 fun CurrentRunScreen(
     navController: NavController,
-    viewModel: CurrentRunViewModel = hiltViewModel()
+    viewModel: RunViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
 

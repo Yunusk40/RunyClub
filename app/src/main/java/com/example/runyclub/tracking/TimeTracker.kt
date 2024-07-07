@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking
+package com.example.runyclub.tracking
 
 import com.example.runyclub.di.ApplicationScope
 import com.example.runyclub.di.DefaultDispatcher

@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.service
+package com.example.runyclub.tracking.service
 
 import android.content.Context
 import android.content.Intent

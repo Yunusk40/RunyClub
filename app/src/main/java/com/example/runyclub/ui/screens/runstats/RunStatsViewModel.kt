@@ -6,7 +6,6 @@ import com.example.runyclub.common.extension.setDateToWeekFirstDay
 import com.example.runyclub.common.extension.setDateToWeekLastDay
 import com.example.runyclub.database.repository.AppRepository
 import com.example.runyclub.di.DefaultDispatcher
-import com.example.runyclub.ui.screens.runstats.utils.RunStatsAccumulator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow

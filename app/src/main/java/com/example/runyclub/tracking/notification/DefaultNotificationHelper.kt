@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.notification
+package com.example.runyclub.tracking.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,8 +11,8 @@ import androidx.core.app.TaskStackBuilder
 import androidx.core.net.toUri
 import com.example.runyclub.R
 import com.example.runyclub.common.utils.DateTimeUtils
-import com.example.runyclub.core.tracking.notification.NotificationHelper.Companion.TRACKING_NOTIFICATION_ID
-import com.example.runyclub.core.tracking.service.TrackingService
+import com.example.runyclub.tracking.notification.NotificationHelper.Companion.TRACKING_NOTIFICATION_ID
+import com.example.runyclub.tracking.service.TrackingService
 import com.example.runyclub.MainActivity
 import com.example.runyclub.navigation.Destination
 import dagger.hilt.android.qualifiers.ApplicationContext

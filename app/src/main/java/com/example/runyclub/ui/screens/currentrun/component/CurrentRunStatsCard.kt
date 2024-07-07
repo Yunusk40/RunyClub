@@ -32,7 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.runyclub.R
 import com.example.runyclub.common.utils.DateTimeUtils
-import com.example.runyclub.core.tracking.model.CurrentRunState
+import com.example.runyclub.tracking.model.CurrentRunState
 import com.example.runyclub.domain.CurrentRunStateWithCalories
 import com.example.runyclub.common.compose.component.RunningStatsItem
 import java.math.RoundingMode
@@ -88,7 +88,6 @@ private fun RunningStats(
     ) {
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.running_boy),
             unit = "km",
             value = (runState.currentRunState.distanceInMeters / 1000f).toString()
         )
@@ -99,7 +98,6 @@ private fun RunningStats(
         )
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.fire),
             unit = "kcal",
             value = runState.caloriesBurnt.toString()
         )
@@ -111,7 +109,6 @@ private fun RunningStats(
         )
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.bolt),
             unit = "km/hr",
             value = runState.currentRunState.speedInKMH.toString()
         )

@@ -23,7 +23,7 @@ import com.example.runyclub.common.extension.hasAllPermission
 import com.example.runyclub.common.extension.hasLocationPermission
 import com.example.runyclub.common.extension.openAppSetting
 import com.example.runyclub.common.utils.PermissionUtils
-import com.example.runyclub.core.tracking.location.LocationUtils
+import com.example.runyclub.tracking.location.LocationUtils
 import com.example.runyclub.common.compose.component.LocationPermissionRequestDialog
 import com.example.runyclub.theme.AppTheme
 import com.example.runyclub.ui.screens.main.MainScreen

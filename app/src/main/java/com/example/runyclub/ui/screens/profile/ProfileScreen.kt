@@ -131,14 +131,6 @@ private fun TotalProgressCard(
                 modifier = Modifier
                     .weight(1f)
             )
-            Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_forward),
-                contentDescription = "More info",
-                modifier = Modifier
-                    .size(16.dp)
-                    .align(Alignment.CenterVertically),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
-            )
         }
 
         Row(
@@ -156,7 +148,6 @@ private fun TotalProgressCard(
         ) {
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.running_boy),
                 unit = "km",
                 value = state.totalDistanceInKm.toString()
             )
@@ -172,7 +163,6 @@ private fun TotalProgressCard(
             )
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.stopwatch),
                 unit = "hr",
                 value = state.totalDurationInHr.toString()
             )
@@ -188,7 +178,6 @@ private fun TotalProgressCard(
             )
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.fire),
                 unit = "kcal",
                 value = state.totalCaloriesBurnt.toString()
             )

@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.runyclub.database.model.Run
 import com.example.runyclub.database.repository.AppRepository
-import com.example.runyclub.core.tracking.TrackingManager
+import com.example.runyclub.tracking.TrackingManager
 import com.example.runyclub.di.ApplicationScope
 import com.example.runyclub.di.IoDispatcher
 import com.example.runyclub.domain.CurrentRunStateWithCalories
@@ -23,10 +23,10 @@ import android.annotation.SuppressLint
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.CameraPosition
-import com.example.runyclub.core.tracking.service.TrackingServiceManager
+import com.example.runyclub.tracking.service.TrackingServiceManager
 
 @HiltViewModel
-class CurrentRunViewModel @Inject constructor(
+class RunViewModel @Inject constructor(
     private val trackingManager: TrackingManager,
     private val trackingServiceManager: TrackingServiceManager, // Correctly inject TrackingServiceManager
     private val repository: AppRepository,

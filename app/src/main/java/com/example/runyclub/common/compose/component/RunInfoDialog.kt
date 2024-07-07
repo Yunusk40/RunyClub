@@ -188,7 +188,6 @@ private fun RunStats(
     ) {
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.running_boy),
             unit = "km",
             value = (run.distanceInMeters / 1000f).toString()
         )
@@ -204,7 +203,6 @@ private fun RunStats(
         )
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.fire),
             unit = "kcal",
             value = run.caloriesBurned.toString()
         )
@@ -220,7 +218,6 @@ private fun RunStats(
         )
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.bolt),
             unit = "km/hr",
             value = run.avgSpeedInKMH.toString()
         )

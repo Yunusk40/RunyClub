@@ -1,11 +1,11 @@
-package com.example.runyclub.core.tracking.service
+package com.example.runyclub.tracking.service
 
 import android.content.Intent
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.model.CameraPosition
-import com.example.runyclub.core.tracking.TrackingManager
-import com.example.runyclub.core.tracking.notification.NotificationHelper
+import com.example.runyclub.tracking.TrackingManager
+import com.example.runyclub.tracking.notification.NotificationHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.combine

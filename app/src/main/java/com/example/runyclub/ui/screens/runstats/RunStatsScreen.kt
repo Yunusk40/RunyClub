@@ -47,7 +47,6 @@ import com.example.runyclub.common.extension.toCalendar
 import com.example.runyclub.common.extension.toList
 import com.example.runyclub.database.model.Run
 import com.example.runyclub.common.extension.conditional
-import com.example.runyclub.ui.screens.runstats.utils.RunStatsAccumulator
 import com.example.runyclub.theme.AppTheme
 import java.text.SimpleDateFormat
 import java.util.Calendar

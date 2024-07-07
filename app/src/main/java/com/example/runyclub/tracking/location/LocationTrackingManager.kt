@@ -1,4 +1,4 @@
-package com.example.runyclub.core.tracking.location
+package com.example.runyclub.tracking.location
 
 import com.google.android.gms.location.LocationCallback
 
