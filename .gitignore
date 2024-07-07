@@ -1,0 +1,56 @@
+# Ignore all iml files
+*.iml
+
+# Ignore Gradle files and folders
+.gradle
+
+# Ignore local.properties file
+local.properties
+
+# Ignore IntelliJ IDEA files and folders
+/.idea
+.DS_Store
+
+# Ignore build output directories
+/build
+/captures
+.externalNativeBuild
+.cxx
+
+# Ignore cache directories
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.cache
+caches/
+tmp/
+*.log
+
+# Ignore Kotlin specific files
+/local.properties
+/.gradle
+.idea/
+build/
+tmp/
+*.jar
+
+# Ignore Android Studio specific files
+.idea/
+.gradle/
+build/
+captures/
+local.properties
+.externalNativeBuild/
+.cxx/
+
+# Ignore wrapper directories
+/.gradle
+/wrapper/dists
+
+# Ignore daemon, jdks, and native directories
+/daemon
+/jdks
+/native
