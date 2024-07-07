@@ -24,6 +24,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -116,8 +117,18 @@ fun HomeScreenContent(
             user = state.user,
             weeklyGoalInKm = state.user.weeklyGoalInKM,
             distanceCoveredInCurrentWeekInKm = state.distanceCoveredInKmInThisWeek,
-            onWeeklyGoalClick = navigateToRunStats
+            onWeeklyGoalClick = navigateToRunStats // This can be removed if not used elsewhere
         )
+        // Add Statistics Button Here
+        Button(
+            onClick = navigateToRunStats,
+            modifier = Modifier
+                .padding(16.dp)
+                .align(Alignment.CenterHorizontally)
+        ) {
+            Text("View Statistics")
+        }
+        // Rest of the content remains the same
         Row(
             modifier = Modifier
                 .background(color = MaterialTheme.colorScheme.surface)
@@ -232,12 +243,6 @@ private fun TopBar(
             TopBarProfile(
                 modifier = Modifier.background(color = Color.Transparent),
                 user = user
-            )
-            Spacer(modifier = Modifier.size(32.dp))
-            WeeklyGoalCard(
-                weeklyGoalInKm = weeklyGoalInKm.roundToInt(),
-                weeklyGoalDoneInKm = distanceCoveredInCurrentWeekInKm,
-                onClick = onWeeklyGoalClick
             )
         }
     }
