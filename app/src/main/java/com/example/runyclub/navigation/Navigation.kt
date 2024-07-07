@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.runyclub.navigation.Destination.CurrentRun
-import com.example.runyclub.ui.screens.currentrun.CurrentRunScreen
+import com.example.runyclub.ui.screens.currentrun.RunScreen
 import com.example.runyclub.ui.screens.login.LoginScreen
 import com.example.runyclub.ui.screens.profile.ProfileScreen
 import com.example.runyclub.ui.screens.runstats.RunStatsScreen
@@ -34,9 +33,9 @@ private fun SetupNavGraph(
         }
 
         composable(
-            route = CurrentRun.route,
-            deepLinks = CurrentRun.deepLinks) {
-            CurrentRunScreen(navController)
+            route = BottomNavDestination.CurrentRun.route,
+            deepLinks = Destination.CurrentRun.deepLinks) {
+            RunScreen(navController)
         }
 
         composable(

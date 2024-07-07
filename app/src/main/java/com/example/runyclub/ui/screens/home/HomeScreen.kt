@@ -148,15 +148,10 @@ fun HomeScreenContent(
                 .verticalScroll(rememberScrollState())
                 .padding(bottom = LocalScaffoldBottomPadding.current)
         ) {
-            if (state.runList.isEmpty())
-                EmptyRunListView(
-                    modifier = Modifier
-                )
-            else
-                RecentRunList(
-                    runList = state.runList,
-                    onItemClick = showRun
-                )
+            RecentRunList(
+                runList = state.runList,
+                onItemClick = showRun
+            )
         }
     }
     state.currentRunInfo?.let {
@@ -209,57 +204,6 @@ private fun RecentRunList(
         }
     }
 
-}
-
-@Composable
-@Preview(showBackground = true)
-private fun EmptyRunListView(
-    modifier: Modifier = Modifier
-) {
-    Column(
-        modifier = modifier
-            .padding(16.dp)
-            .fillMaxHeight(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_calendar),
-            contentDescription = null,
-            modifier = Modifier
-                .size(80.dp),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-        )
-        Spacer(modifier = Modifier.size(16.dp))
-        val inlineContentMap = mapOf(
-            "run_icon_img" to InlineTextContent(
-                placeholder = Placeholder(
-                    MaterialTheme.typography.bodyLarge.fontSize,
-                    MaterialTheme.typography.bodyLarge.fontSize,
-                    PlaceholderVerticalAlign.TextCenter
-                )
-            ) {
-                Image(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_play),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .alpha(0.5f)
-                )
-            }
-        )
-        Text(
-            text = buildAnnotatedString {
-                append("Its seems like we don't have any records. Record you run by clicking on the ")
-                appendInlineContent(id = "run_icon_img")
-                append(" button")
-            },
-            inlineContent = inlineContentMap,
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-        )
-    }
 }
 
 @Composable

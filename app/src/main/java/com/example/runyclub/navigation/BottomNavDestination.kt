@@ -35,6 +35,7 @@ sealed class BottomNavDestination(
         object RunningHistory : Destination("running_history")
 
     }
+    object CurrentRun : BottomNavDestination(route = "current_run", icon = R.drawable.ic_play)
 
     object Profile : BottomNavDestination(route = "profile", icon = R.drawable.ic_profile)
 

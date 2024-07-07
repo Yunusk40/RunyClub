@@ -39,13 +39,13 @@ import com.example.runyclub.theme.AppTheme
 private fun CurrentRunComposable() {
     AppTheme {
         Surface {
-            CurrentRunScreen(rememberNavController())
+            RunScreen(rememberNavController())
         }
     }
 }
 
 @Composable
-fun CurrentRunScreen(
+fun RunScreen(
     navController: NavController,
     viewModel: RunViewModel = hiltViewModel()
 ) {
