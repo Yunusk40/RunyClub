@@ -16,6 +16,8 @@ import java.math.RoundingMode
 import javax.inject.Inject
 import javax.inject.Singleton
 
+// Manages tracking of user's running activities, including starting, pausing, and stopping tracking.
+// It handles location updates, calculates running statistics like speed and distance, and maintains the current state of the run.
 @Singleton
 class TrackingManager @Inject constructor(
     private val locationTrackingManager: LocationTrackingManager,

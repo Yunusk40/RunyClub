@@ -9,6 +9,7 @@ import com.google.android.gms.maps.model.CameraPosition
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+// Provides control over the `TrackingService`, including starting and stopping the service. It also manages camera position updates for tracking.
 class DefaultTrackingServiceManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) : TrackingServiceManager {

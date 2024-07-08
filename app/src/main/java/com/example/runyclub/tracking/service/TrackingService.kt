@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.launchIn
 import javax.inject.Inject
 import androidx.lifecycle.Observer
 
+// A foreground service that manages the lifecycle of tracking a run. It responds to actions like start, pause, and resume tracking,
+// and updates the ongoing notification with the current run's duration and tracking status.
 @AndroidEntryPoint
 class TrackingService : LifecycleService() {
 

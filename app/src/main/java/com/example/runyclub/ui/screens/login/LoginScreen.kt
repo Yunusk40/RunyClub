@@ -160,13 +160,6 @@ private fun OnBoardingScreenHeader(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
     ) {
-        Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_run),
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .size(64.dp)
-        )
         Text(
             text = "Welcome to RunyClub",
             style = MaterialTheme.typography.displayMedium,

@@ -18,6 +18,8 @@ import com.example.runyclub.navigation.Destination
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+// Handles creation and updating of notifications related to run tracking, including the ongoing notification during a run.
+// It also manages the notification channel for tracking notifications.
 class DefaultNotificationHelper @Inject constructor(
     @ApplicationContext private val context: Context
 ) : NotificationHelper {

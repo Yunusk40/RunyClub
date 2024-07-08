@@ -16,13 +16,14 @@ data class RunStatsUiState(
     val statisticToShow: Statistic,
     val runStatisticsOnDate: Map<Date, AccumulatedRunStatisticsOnDate>,
 ) {
-
+    // Represents the accumulated statistics for runs on a specific date.
     data class AccumulatedRunStatisticsOnDate(
         val date: Date = Date(),
         val distanceInMeters: Int = 0,
         val durationInMillis: Long = 0L,
         val caloriesBurned: Int = 0
     ) {
+        // Combines the statistics of this object with another, returning a new object.
         operator fun plus(other: AccumulatedRunStatisticsOnDate?) = other?.let {
             AccumulatedRunStatisticsOnDate(
                 date = this.date,
@@ -32,6 +33,7 @@ data class RunStatsUiState(
             )
         } ?: this
 
+        // Creates an `AccumulatedRunStatisticsOnDate` from a `Run` object.
         companion object {
             fun fromRun(run: Run) = AccumulatedRunStatisticsOnDate(
                 date = run.timestamp.toCalendar().setMinimumTime().time,
@@ -42,6 +44,7 @@ data class RunStatsUiState(
         }
     }
 
+    // Enum to specify which statistic is being shown.
     enum class Statistic {
         CALORIES,
         DURATION,
@@ -49,6 +52,7 @@ data class RunStatsUiState(
     }
 
     companion object {
+        // Provides an empty default state for the UI.
         val EMPTY_STATE
             get() = RunStatsUiState(
                 dateRange = Calendar.getInstance().setDateToWeekFirstDay().time..
