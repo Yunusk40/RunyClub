@@ -11,15 +11,10 @@ import androidx.room.Room
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.example.runyclub.database.AppDatabase
-import com.example.runyclub.database.AppDatabase.Companion.RUN_TRACK_DB_NAME
+import com.example.runyclub.database.AppDatabase.Companion.RUNY_CLUB_DB_NAME
 import com.example.runyclub.tracking.location.DefaultLocationTrackingManager
 import com.example.runyclub.tracking.location.LocationTrackingManager
 import com.example.runyclub.tracking.location.LocationUtils
-import com.example.runyclub.tracking.notification.DefaultNotificationHelper
-import com.example.runyclub.tracking.notification.NotificationHelper
-import com.example.runyclub.tracking.service.DefaultTrackingServiceManager
-import com.example.runyclub.tracking.service.TrackingServiceManager
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -53,7 +48,7 @@ abstract class AppModule {
         ): AppDatabase = Room.databaseBuilder(
             context,
             AppDatabase::class.java,
-            RUN_TRACK_DB_NAME
+            RUNY_CLUB_DB_NAME
         ).build()
 
         @Singleton
@@ -89,18 +84,5 @@ abstract class AppModule {
         }
 
     }
-
-    @Binds
-    @Singleton
-    abstract fun provideTrackingServiceManager(
-        trackingServiceManager: DefaultTrackingServiceManager
-    ): TrackingServiceManager
-
-    @Binds
-    @Singleton
-    abstract fun provideNotificationHelper(
-        notificationHelper: DefaultNotificationHelper
-    ): NotificationHelper
-
 
 }

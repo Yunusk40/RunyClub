@@ -43,7 +43,7 @@ class TrackingManager @Inject constructor(
 
     private var isFirst = true
 
-
+    // Location callback to get location updates
     private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(result: LocationResult) {
             super.onLocationResult(result)
