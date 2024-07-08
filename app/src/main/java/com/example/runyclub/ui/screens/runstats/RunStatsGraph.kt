@@ -275,13 +275,6 @@ private fun TopStatistics(
 }
 
 @Composable
-@Preview(
-    showBackground = true
-)
-@Preview(
-    showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
 private fun RunStatsGraphPreview() = AppTheme {
     val from = Calendar.getInstance().setDateToWeekFirstDay()
     val to = Calendar.getInstance().setDateToWeekLastDay()

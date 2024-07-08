@@ -297,7 +297,6 @@ private fun getGenderCardColor(isSelected: Boolean) =
     else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
 
 @Composable
-@Preview(showBackground = true)
 private fun BottomItem(
     onNextButtonClicked: () -> Unit = {},
     onBackButtonClicked: () -> Unit = {},

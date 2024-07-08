@@ -38,7 +38,6 @@ import com.example.runyclub.navigation.Navigation
 import com.example.runyclub.theme.AppTheme
 
 @Composable
-@Preview(showBackground = true)
 private fun MainScreenPreview() {
     AppTheme {
         Surface(

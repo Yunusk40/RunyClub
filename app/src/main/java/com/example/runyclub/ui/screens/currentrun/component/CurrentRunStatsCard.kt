@@ -188,7 +188,6 @@ private fun TrackingControlButton(
 }
 
 @Composable
-@Preview(showBackground = true)
 private fun CurrentRunStatsCardPreview() {
     var isRunning by rememberSaveable { mutableStateOf(false) }
     CurrentRunStatsCard(

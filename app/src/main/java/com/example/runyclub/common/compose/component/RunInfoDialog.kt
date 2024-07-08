@@ -225,7 +225,6 @@ private fun RunStats(
 }
 
 @Composable
-@Preview(showBackground = true)
 private fun RunInfoDialogPreview() {
     RunInfoDialog(
         run = Run(

@@ -286,13 +286,6 @@ private fun DateRangeColumn(
 }
 
 @Composable
-@Preview(
-    showBackground = true
-)
-@Preview(
-    showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
 private fun RunStatsScreenPreview() = AppTheme {
     val img = BitmapFactory.decodeResource(
         LocalContext.current.resources,

@@ -82,7 +82,6 @@ private fun RunningHistoryScreenContent(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview(showBackground = true)
 private fun ScreenTopAppBar(
     onNavIconClick: () -> Unit = {}
 ) {
@@ -147,7 +146,6 @@ private fun RunCardItem(
 }
 
 @Composable
-@Preview(showBackground = true)
 private fun RunCardItemPreview() {
     val runList = List(4) {
         Run(

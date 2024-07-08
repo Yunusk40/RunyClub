@@ -35,7 +35,6 @@ import com.example.runyclub.ui.screens.currentrun.component.Map
 import com.example.runyclub.theme.AppTheme
 
 @Composable
-@Preview(showBackground = true)
 private fun CurrentRunComposable() {
     AppTheme {
         Surface {

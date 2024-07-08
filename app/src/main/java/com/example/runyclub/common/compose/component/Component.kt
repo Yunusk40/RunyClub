@@ -72,7 +72,7 @@ fun RunningStatsItem(
     value: String
 ) {
     Row(modifier = modifier.padding(4.dp)) {
-        Spacer(modifier = Modifier.size(12.dp)) // Adjust spacing as needed
+        Spacer(modifier = Modifier.size(12.dp))
         Column(
             modifier = Modifier
                 .padding(top = 8.dp),
@@ -161,7 +161,6 @@ private fun RunInfo(
 }
 
 @Composable
-@Preview(showBackground = true)
 private fun RunItemPrev() {
     RunItem(
         run = Run(
