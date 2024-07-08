@@ -59,7 +59,7 @@ class TrackingManager @Inject constructor(
     }
 
 
-
+    //initializes the start state of the run
     private fun postInitialValue() {
         _currentRunState.update {
             CurrentRunState()
