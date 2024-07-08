@@ -39,6 +39,9 @@ abstract class AppModule {
 
         private const val USER_PREFERENCES_FILE_NAME = "user_preferences"
 
+        /**
+         * Provides a FusedLocationProviderClient for accessing the device's location services.
+         */
         @Singleton
         @Provides
         fun provideFusedLocationProviderClient(
@@ -46,6 +49,9 @@ abstract class AppModule {
         ) = LocationServices
             .getFusedLocationProviderClient(context)
 
+        /**
+         * Provides a Room database instance for local data storage.
+         */
         @Provides
         @Singleton
         fun provideRunningDB(
@@ -56,10 +62,16 @@ abstract class AppModule {
             RUN_TRACK_DB_NAME
         ).build()
 
+        /**
+         * Provides the DAO for accessing the Room database.
+         */
         @Singleton
         @Provides
         fun provideRunDao(db: AppDatabase) = db.getRunDao()
 
+        /**
+         * Provides a DataStore for preference storage, utilizing the IO dispatcher for background operations.
+         */
         @Provides
         @Singleton
         fun providesPreferenceDataStore(
@@ -75,6 +87,9 @@ abstract class AppModule {
                 scope = scope.plus(ioDispatcher + SupervisorJob())
             )
 
+        /**
+         * Provides a LocationTrackingManager for managing location tracking functionalities.
+         */
         @Singleton
         @Provides
         fun provideLocationTrackingManager(
@@ -90,17 +105,22 @@ abstract class AppModule {
 
     }
 
+    /**
+     * Binds the DefaultTrackingServiceManager implementation to the TrackingServiceManager interface.
+     */
     @Binds
     @Singleton
     abstract fun provideTrackingServiceManager(
         trackingServiceManager: DefaultTrackingServiceManager
     ): TrackingServiceManager
 
+    /**
+     * Binds the DefaultNotificationHelper implementation to the NotificationHelper interface.
+     */
     @Binds
     @Singleton
     abstract fun provideNotificationHelper(
         notificationHelper: DefaultNotificationHelper
     ): NotificationHelper
-
 
 }
