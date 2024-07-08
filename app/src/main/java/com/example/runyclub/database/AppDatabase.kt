@@ -14,7 +14,7 @@ import com.example.runyclub.database.model.Run
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
-        const val RUNY_CLUB_DB_NAME = "run_track_db"
+        const val RUN_TRACK_DB_NAME = "run_track_db"
     }
 
     abstract fun getRunDao(): RunDao
